@@ -32,11 +32,10 @@ public class Student extends Agent {
     
     public int ticksAwake = 0;
 
-    public boolean isTimeToWork = false;
+    public boolean isTimeToWork = false;    
     
     public boolean isAwake = false;
 
-    private final String setBoldText = "\033[0;1m";
     
     @Override
     protected void setup() {
@@ -188,10 +187,9 @@ public class Student extends Agent {
         @Override
         public void action() {
 //            System.out.println("i am so active right now...");
-            student.ticksAwake++;
             student.sleepyness++;
-            student.thirstyness ++;
-            student.hungryness ++;
+            student.thirstyness++;
+            student.hungryness++;
         }
                 
         @Override
@@ -233,7 +231,7 @@ public class Student extends Agent {
 
     private class SleepBehaviour extends SimpleBehaviour{
 
-        private Student student;
+        private final Student student;
         
         public SleepBehaviour(Agent a) {
             super(a);
@@ -253,7 +251,6 @@ public class Student extends Agent {
                 
         @Override
         public int onEnd() {
-            student.ticksAwake = 0;
             return Student.GET_UP;
         }
   
